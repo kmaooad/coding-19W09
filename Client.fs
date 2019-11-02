@@ -35,7 +35,7 @@ module Client =
           taxTotal: decimal
           total: decimal }
 
-    let addProduct name price taxable: int = failwith "not implemented"
+    let addProduct name (price:decimal) taxable: int = failwith "not implemented"
 
     let updateProduct (p: Product) : unit = failwith "not implemented"
 
