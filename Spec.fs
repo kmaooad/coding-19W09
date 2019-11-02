@@ -8,7 +8,7 @@ open FsCheck
 
 module Spec =
 
-    let vipcust =
+    let vipcust() =
         { id = 777
           name = "Jason Statham"
           street = "7th Avenue"
@@ -25,6 +25,7 @@ module Spec =
             let price = qty * 9 |> decimal
             let pid = addProduct "pro1" price false
 
+            let vipcust = vipcust()
             let total =
                 (vipcust,
                  [ { productId = pid
@@ -47,6 +48,9 @@ module Spec =
         |> Arb.fromGen
         |> Prop.forAll
         <| fun qty ->
+        
+            let vipcust = vipcust()
+
             let price = qty * 7 |> decimal
             let pid1 = addProduct "pro1" price false
             let pid2 = addProduct "pro2" price false
@@ -94,6 +98,9 @@ module Spec =
         |> Arb.fromGen
         |> Prop.forAll
         <| fun qty ->
+
+            let vipcust = vipcust()
+
             let price = qty * 7 |> decimal
             let pid = addProduct "pro1" price false
 
@@ -125,6 +132,9 @@ module Spec =
         |> Arb.fromGen
         |> Prop.forAll
         <| fun qty ->
+            
+            let vipcust = vipcust()
+
             let price = qty * 4 |> decimal
             let pid = addProduct "pro1" price false
 
@@ -169,6 +179,9 @@ module Spec =
         |> Arb.fromGen
         |> Prop.forAll
         <| fun qty ->
+
+            let vipcust = vipcust()
+
             let price = qty * 4 |> decimal
             let pidnt = addProduct "pro1" price false
             let pidt = addProduct "pro2" price true
